@@ -1,5 +1,5 @@
 object Versions {
-    const val avroVersion = "1.10.2"
+    const val avroVersion = "1.9.2"
 }
 
 repositories {
