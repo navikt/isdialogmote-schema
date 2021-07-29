@@ -10,7 +10,7 @@ repositories {
 
 plugins {
     `maven-publish`
-    id("com.commercehub.gradle.plugin.avro") version "0.9.1"
+    id("com.github.davidmc24.gradle.plugin.avro") version "1.2.1"
 }
 
 dependencies {
