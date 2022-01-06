@@ -16,7 +16,7 @@ Description of the properties in the record schema:
 - virksomhetsnummer: Virsomhetsnummer of the Arbeidsgiver.
 - enhetNr: 4-digit number of the NAV-enhet that NavIdent represents.
 - navIdent: Ident of the SYFO-veileder that initiated the event.
-- tilfelleStartdato: Start date of the last Oppfolgingstilfelle at the given statusEndringTidspunkt. Represented in ms from epoch.
+- tilfelleStartdato: Start date-time of the last Oppfolgingstilfelle at the given statusEndringTidspunkt. Represented in ms from epoch.
 - arbeidstaker: Is Arbeidstaker Motedeltaker.
 - arbeidsgiver: Is Arbeidsgiver Motedeltaker.
 - sykmelder: Is Sykmelder Motedeltaker.
