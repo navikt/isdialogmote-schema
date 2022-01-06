@@ -1,12 +1,13 @@
 # isdialogmote-schema
 AVRO schemas for application Isdialogmote
 
-## Topic
+## Kafka Topic
 
-### Name of topic:
+### Topic Name:
 teamsykefravr.isdialogmote-dialogmote-statusendring
 
-### Explanation of properties in topic:
+### Properties
+Description of the properties in the record schema:
 - dialogmoteUuid: UUID of Dialogmote
 - dialogmoteTidspunkt: The date-time a Dialogmote is held. Represented in ms from epoch.  
 - statusEndringType: Type of StatusEndring. One of the following types:  INNKALT, AVLYST, FERDIGSTILT, NYTT_TID_STED.
