@@ -15,6 +15,11 @@ plugins {
 
 dependencies {
     implementation("org.apache.avro:avro:${Versions.avroVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 group = "no.nav.syfo.dialogmote.avro"
