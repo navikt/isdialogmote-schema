@@ -20,4 +20,4 @@ Description of the properties in the record schema:
 - arbeidstaker: Is Arbeidstaker Motedeltaker.
 - arbeidsgiver: Is Arbeidsgiver Motedeltaker.
 - sykmelder: Is Sykmelder Motedeltaker.
-- endringer: Nullable list of change types for statusEndringType ENDRET (e.g. TID_STED, BEHANDLER_LAGT_TIL). Null for all other statusEndringType values. New values may be added; consumers should ignore unknown values.
+- dialogmoteEndringer: Nullable list of change types for statusEndringType ENDRET (e.g. TID_STED, BEHANDLER_LAGT_TIL). Null for all other statusEndringType values. New values may be added; consumers should ignore unknown values.

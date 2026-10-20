@@ -47,15 +47,15 @@ class KDialogmoteStatusEndringCompatibilityTest {
     }
 
     @Test
-    void builderDefaultsEndringerToNull() {
-        assertNull(newBuilder().build().getEndringer());
+    void builderDefaultsDialogmoteEndringerToNull() {
+        assertNull(newBuilder().build().getDialogmoteEndringer());
     }
 
     @Test
     void recordWrittenWithNewSchemaIsReadableWithOldSchema() throws IOException {
         KDialogmoteStatusEndring record = newBuilder()
             .setStatusEndringType("ENDRET")
-            .setEndringer(Arrays.asList("TID_STED", "BEHANDLER_LAGT_TIL"))
+            .setDialogmoteEndringer(Arrays.asList("TID_STED", "BEHANDLER_LAGT_TIL"))
             .build();
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -67,7 +67,7 @@ class KDialogmoteStatusEndringCompatibilityTest {
         GenericRecord read = new GenericDatumReader<GenericRecord>(NEW_SCHEMA, OLD_SCHEMA).read(null, decoder);
 
         assertEquals("ENDRET", read.get("statusEndringType").toString());
-        assertNull(read.getSchema().getField("endringer"));
+        assertNull(read.getSchema().getField("dialogmoteEndringer"));
     }
 
     @Test
@@ -96,7 +96,7 @@ class KDialogmoteStatusEndringCompatibilityTest {
             new SpecificDatumReader<KDialogmoteStatusEndring>(OLD_SCHEMA, NEW_SCHEMA).read(null, decoder);
 
         assertEquals("INNKALT", read.getStatusEndringType());
-        assertNull(read.getEndringer());
+        assertNull(read.getDialogmoteEndringer());
     }
 
     private static KDialogmoteStatusEndring.Builder newBuilder() {

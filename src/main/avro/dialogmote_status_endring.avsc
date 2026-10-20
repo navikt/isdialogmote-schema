@@ -15,6 +15,6 @@
     { "name": "arbeidstaker", "type": "boolean" },
     { "name": "arbeidsgiver", "type": "boolean" },
     { "name": "sykmelder", "type": "boolean" },
-    { "name": "endringer", "type": ["null", { "type": "array", "items": "string" }], "default": null }
+    { "name": "dialogmoteEndringer", "type": ["null", { "type": "array", "items": "string" }], "default": null }
   ]
 }
