@@ -1,0 +1,19 @@
+{
+  "namespace": "no.nav.syfo.dialogmote.avro",
+  "type": "record",
+  "name": "KDialogmoteStatusEndring",
+  "fields": [
+    { "name": "dialogmoteUuid", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "dialogmoteTidspunkt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "statusEndringType", "type": "string" },
+    { "name": "statusEndringTidspunkt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "personIdent", "type": "string" },
+    { "name": "virksomhetsnummer", "type": "string" },
+    { "name": "enhetNr", "type": "string" },
+    { "name": "navIdent", "type": "string" },
+    { "name": "tilfelleStartdato", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "arbeidstaker", "type": "boolean" },
+    { "name": "arbeidsgiver", "type": "boolean" },
+    { "name": "sykmelder", "type": "boolean" }
+  ]
+}

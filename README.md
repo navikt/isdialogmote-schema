@@ -10,7 +10,7 @@ teamsykefravr.isdialogmote-dialogmote-statusendring
 Description of the properties in the record schema:
 - dialogmoteUuid: UUID of Dialogmote
 - dialogmoteTidspunkt: The date-time a Dialogmote is held. Represented in ms from epoch.  
-- statusEndringType: Type of StatusEndring. One of the following types:  INNKALT, AVLYST, FERDIGSTILT, NYTT_TID_STED, LUKKET.
+- statusEndringType: Type of StatusEndring. One of the following types:  INNKALT, AVLYST, FERDIGSTILT, NYTT_TID_STED, LUKKET, ENDRET.
 - statusEndringTidspunkt: The date-time the StatusEndring was created. Represented in ms from epoch.
 - personIdent: Identification number of Arbeidstaker(D-nummer or F-nummer)
 - virksomhetsnummer: Virsomhetsnummer of the Arbeidsgiver.
@@ -20,3 +20,4 @@ Description of the properties in the record schema:
 - arbeidstaker: Is Arbeidstaker Motedeltaker.
 - arbeidsgiver: Is Arbeidsgiver Motedeltaker.
 - sykmelder: Is Sykmelder Motedeltaker.
+- dialogmoteEndringer: Nullable list of change types for statusEndringType ENDRET (e.g. TID_STED, BEHANDLER_LAGT_TIL). Null for all other statusEndringType values. New values may be added; consumers should ignore unknown values.
