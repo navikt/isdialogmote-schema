@@ -1,21 +1,40 @@
+buildscript {
+    configurations.classpath {
+        resolutionStrategy {
+            // Avro 1.11+ compiler generates java.util.UUID for logicalType uuid; 1.10 keeps String (consumer API)
+            force("org.apache.avro:avro-compiler:1.10.2", "org.apache.avro:avro:1.10.2")
+        }
+    }
+}
+
+plugins {
+    `java-library`
+    `maven-publish`
+    id("com.github.davidmc24.gradle.plugin.avro") version "1.9.1"
+}
+
 object Versions {
-    const val avroVersion = "1.9.2"
+    const val avroVersion = "1.11.4"
+    const val junitVersion = "5.11.4"
 }
 
 repositories {
     mavenCentral()
-    maven(url = "https://dl.bintray.com/gradle/gradle-plugins")
-    maven(url = "http://packages.confluent.io/maven/")
-}
-
-plugins {
-    `maven-publish`
-    id("com.github.davidmc24.gradle.plugin.avro") version "1.2.1"
 }
 
 dependencies {
     implementation("org.apache.avro:avro:${Versions.avroVersion}")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
+    testImplementation(platform("org.junit:junit-bom:${Versions.junitVersion}"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+java {
+    withSourcesJar()
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(17)
 }
 
 tasks.test {
@@ -23,7 +42,6 @@ tasks.test {
 }
 
 group = "no.nav.syfo.dialogmote.avro"
-version = "${project.version}"
 
 val githubUser: String by project
 val githubPassword: String by project

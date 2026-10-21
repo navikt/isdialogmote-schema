@@ -7,19 +7,23 @@ on:
       - 'src/main/avro/dialogmote_status_endring.avsc'
       - 'gradle.properties'
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
-      - name: Gradle wrapper validation
-        uses: gradle/wrapper-validation-action@v1
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          path: ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-wrapper-
+          distribution: temurin
+          java-version: '21'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
       - name: Build
         run: ./gradlew build
         env:
