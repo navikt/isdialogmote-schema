@@ -6,6 +6,7 @@ on:
     paths:
       - 'src/main/avro/dialogmote_status_endring.avsc'
       - 'gradle.properties'
+  workflow_dispatch:
 
 permissions:
   contents: read
